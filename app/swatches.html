@@ -73,6 +73,23 @@
     </div>
 
     <script>
+        function populateFieldsFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const colors = urlParams.get('colors');
+
+            if (name) {
+                document.getElementById('name-input').value = name;
+            }
+
+            if (colors) {
+                document.getElementById('hex-input').value = colors;
+            }
+        }
+
+        // Run the function to check query params on page load
+        window.onload = populateFieldsFromURL;
+
         document.getElementById('color-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const hexValues = document.getElementById('hex-input').value;
