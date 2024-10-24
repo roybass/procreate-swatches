@@ -95,7 +95,7 @@
             const hexValues = document.getElementById('hex-input').value;
             const name = document.getElementById('name-input').value;
 
-            const response = await fetch(`http://localhost:3000/generate-swatches?colors=${encodeURIComponent(hexValues)}&name=${encodeURIComponent(name)}`);
+            const response = await fetch(`/generate-swatches?colors=${encodeURIComponent(hexValues)}&name=${encodeURIComponent(name)}`);
             if (response.ok) {
                 const blob = await response.blob();
                 const url = window.URL.createObjectURL(blob);
